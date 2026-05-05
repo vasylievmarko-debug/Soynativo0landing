@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Soy Nativo — preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #fefaf5;
+        --ink: #141e25;
+        --accent: #e8511b;
+        --sand: #ebe2db;
+        --beige: #efe6e0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .section {
+        padding: 64px 24px;
+      }
+      @media (min-width: 768px) {
+        .section {
+          padding: 96px 24px;
+        }
+      }
+      .container {
+        max-width: 1640px;
+        margin: 0 auto;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 768px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+      }
+
+      .card {
+        background: var(--cream);
+        border-radius: 16px;
+        box-shadow: 0 1px 2px rgba(20, 30, 37, 0.06);
+        outline: 1px solid rgba(239, 230, 224, 0.6);
+        padding: 24px;
+      }
+      @media (min-width: 768px) {
+        .card {
+          padding: 32px;
+        }
+      }
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 768px) {
+        .card-grid {
+          grid-template-columns: 1fr 1.1fr;
+          gap: 32px;
+        }
+      }
+
+      .photo-wrap {
+        position: relative;
+        aspect-ratio: 409 / 356;
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--sand);
+      }
+      .photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+      .bubble {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 32%;
+        max-width: 140px;
+        height: auto;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06));
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .name {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      @media (min-width: 768px) {
+        .name {
+          font-size: 28px;
+        }
+      }
+      .tags {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        height: 35px;
+        display: inline-flex;
+        align-items: center;
+        background: var(--beige);
+        border-radius: 8px;
+        padding: 0 12px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .desc {
+        margin: 16px 0 0;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(20, 30, 37, 0.8);
+      }
+
+      .ctas {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      @media (min-width: 640px) {
+        .ctas {
+          flex-direction: row;
+          align-items: center;
+          gap: 16px;
+        }
+      }
+      .btn {
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border-radius: 9999px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: filter 0.15s, background 0.15s;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        border: 0;
+      }
+      .btn-primary:hover {
+        filter: brightness(0.95);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid rgba(20, 30, 37, 0.15);
+      }
+      .btn-secondary:hover {
+        background: rgba(20, 30, 37, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="grid">
+            <article class="card">
+              <div class="card-grid">
+                <div class="photo-wrap">
+                  <img
+                    class="photo"
+                    src="public/images/image0_21_281.png"
+                    alt="Diego, profesor nativo de México"
+                  />
+                  <img
+                    class="bubble"
+                    src="public/images/image1_21_281.png"
+                    alt="Burbuja: ¡Hola!"
+                  />
+                </div>
+                <div class="content">
+                  <div>
+                    <h3 class="name">Diego, México</h3>
+                    <div class="tags">
+                      <span class="tag">Principiante</span>
+                      <span class="tag">A1–A2</span>
+                    </div>
+                    <p class="desc">
+                      Aprende español conversacional con un nativo de Ciudad de México.
+                      Acento neutro, paciente y divertido — perfecto para principiantes.
+                    </p>
+                  </div>
+                  <div class="ctas">
+                    <a class="btn btn-primary" href="#book-diego">Reservar clase</a>
+                    <a class="btn btn-secondary" href="#profile-diego">Ver perfil</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-grid">
+                <div class="photo-wrap">
+                  <img
+                    class="photo"
+                    src="public/images/image2_21_281.png"
+                    alt="Mateo, profesor nativo de Colombia"
+                  />
+                  <img
+                    class="bubble"
+                    src="public/images/image3_21_281.png"
+                    alt="Estrella: ¿Listo?"
+                  />
+                </div>
+                <div class="content">
+                  <div>
+                    <h3 class="name">Mateo, Colombia</h3>
+                    <div class="tags">
+                      <span class="tag">Avanzado</span>
+                      <span class="tag">B2–C1</span>
+                    </div>
+                    <p class="desc">
+                      Sube tu nivel con un nativo de Bogotá. Práctica fluida, vocabulario
+                      avanzado y conversaciones reales del día a día.
+                    </p>
+                  </div>
+                  <div class="ctas">
+                    <a class="btn btn-primary" href="#book-mateo">Reservar clase</a>
+                    <a class="btn btn-secondary" href="#profile-mateo">Ver perfil</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
