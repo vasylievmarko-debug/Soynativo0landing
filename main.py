@@ -17,13 +17,13 @@ load_dotenv()
 class AudioSubtitleTranslator:
     def __init__(self):
         self.audio_capture = AudioCapture(sample_rate=16000, chunk_duration=1.0)
-        self.stt = SpeechToText(model_size="base", language="ru")
-        self.translator = Translator(source_lang="ru", target_lang="en")
-        self.ui = SubtitleWindow("Audio Subtitle Translator (РУ → EN)")
+        self.stt = SpeechToText(model_size="base", language="en")
+        self.translator = Translator(source_lang="en", target_lang="ru")
+        self.ui = SubtitleWindow("Audio Subtitle Translator (EN → РУ)")
 
         self.is_running = False
-        self.last_russian_text = ""
         self.last_english_text = ""
+        self.last_russian_text = ""
 
     def process_audio(self):
         silence_counter = 0
@@ -36,16 +36,16 @@ class AudioSubtitleTranslator:
                 silence_counter = 0
                 self.ui.update_status("Processing audio...")
 
-                russian_text = self.stt.transcribe_audio(audio_chunk)
+                english_text = self.stt.transcribe_audio(audio_chunk)
 
-                if russian_text and russian_text != self.last_russian_text:
-                    self.last_russian_text = russian_text
+                if english_text and english_text != self.last_english_text:
+                    self.last_english_text = english_text
                     self.ui.update_status("Translating...")
 
-                    english_text = self.translator.translate(russian_text)
-                    self.last_english_text = english_text or russian_text
+                    russian_text = self.translator.translate(english_text)
+                    self.last_russian_text = russian_text or english_text
 
-                    self.ui.update_subtitles(russian_text, self.last_english_text)
+                    self.ui.update_subtitles(english_text, self.last_russian_text)
                     self.ui.update_status("Listening...")
             else:
                 silence_counter += 1

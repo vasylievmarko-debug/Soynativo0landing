@@ -4,7 +4,7 @@ from queue import Queue
 import threading
 
 class SpeechToText:
-    def __init__(self, model_size="base", language="ru"):
+    def __init__(self, model_size="base", language="en"):
         self.model = whisper.load_model(model_size)
         self.language = language
         self.result_queue = Queue()

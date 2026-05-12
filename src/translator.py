@@ -2,7 +2,7 @@ from google.cloud import translate_v2
 import os
 
 class Translator:
-    def __init__(self, source_lang="ru", target_lang="en"):
+    def __init__(self, source_lang="en", target_lang="ru"):
         self.source_lang = source_lang
         self.target_lang = target_lang
 
